@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Carousel,
   CarouselContent,
@@ -7,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import {
@@ -22,6 +24,8 @@ import {
 } from "react-icons/si";
 import Link from "next/link";
 import Tooltip from "../Tooltip/tooltip";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export type Highlight = {
   title: string;
@@ -34,6 +38,30 @@ export type Highlight = {
 };
 
 export default function ProjectsHighlights() {
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      ".project",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".project",
+          start: "top 600px",
+          end: "bottom 300px",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
   const highlights: Highlight[] = [
     {
       title: "Finance AI",
@@ -57,7 +85,7 @@ export default function ProjectsHighlights() {
       {highlights.map((highlight, index) => (
         <div
           key={index}
-          className="flex flex-col md:flex-row justify-between items-center md:items-start shadow-md rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow"
+          className="flex project flex-col md:flex-row justify-between items-center md:items-start rounded-lg p-4 md:p-6 transition-shadow"
         >
           {/* Left: Information */}
           <div className="flex-[1] md:pr-4 space-y-4 text-center md:text-left">

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import {
@@ -18,8 +20,36 @@ import {
   DialogDescription,
 } from "../ui/dialog";
 import { FaGithub } from "react-icons/fa";
+import { useLayoutEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Badge } from "../ui/badge";
 
 export default function ProjectsGalery() {
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      ".project-item",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".project",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
   const projects = [
     {
       title: "Gam3rStore",
@@ -70,11 +100,11 @@ export default function ProjectsGalery() {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8 project">
         {projects.map((project, index) => (
           <Card
             key={index}
-            className="group relative flex flex-col p-4 rounded-md shadow-md mx-auto w-full transform transition-all hover:scale-105 hover:ease-in-out duration-300"
+            className="group relative flex flex-col p-4 rounded-md shadow-md mx-auto w-full transform transition-all hover:scale-110 hover:ease-in-out duration-300 project-item "
           >
             <div className="flex gap-2 items-center justify-start">
               <div className="bg-red-500 w-2 h-2 rounded-full"></div>
@@ -82,7 +112,6 @@ export default function ProjectsGalery() {
               <div className="bg-green-500 w-2 h-2 rounded-full"></div>
             </div>
             <CardContent className="flex flex-col items-center">
-              {/* Logo with hover blur */}
               <Image
                 src={project.logo}
                 alt={`${project.title} logo`}
@@ -90,7 +119,7 @@ export default function ProjectsGalery() {
                 width={80}
                 height={80}
               />
-              {/* Carousel with hover blur */}
+
               <Carousel className="relative overflow-hidden w-full sm:h-52 group-hover:blur-sm transition-all duration-300">
                 <CarouselContent className="relative flex gap-2">
                   {project.images.map((image, i) => (
@@ -111,11 +140,11 @@ export default function ProjectsGalery() {
                 <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-100 text-gray-700 hover:bg-gray-200 p-2 rounded-full shadow-md transition-transform hover:scale-110 z-10" />
                 <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-100 text-gray-700 hover:bg-gray-200 p-2 rounded-full shadow-md transition-transform hover:scale-110 z-10" />
               </Carousel>
-              {/* Description with hover blur */}
+
               <p className="text-xs sm:text-sm text-gray-700 mt-2 line-clamp-2 group-hover:blur-sm transition-all duration-300">
                 {project.description}
               </p>
-              {/* View Project Button (without blur) */}
+
               <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Dialog>
                   <DialogTrigger asChild>
@@ -141,6 +170,10 @@ export default function ProjectsGalery() {
                                 key={i}
                                 className="relative flex-shrink-0 w-full h-full flex justify-center items-center bg-gray-100 rounded-md"
                               >
+                                <Badge className="absolute top-2 right-2 bg-white text-white font-medium shadow-md rounded-full px-2 py-1 gap-2 bg-opacity-10">
+                                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                                  {project.category}
+                                </Badge>
                                 <Image
                                   src={image}
                                   alt={`Screenshot ${i + 1}`}
