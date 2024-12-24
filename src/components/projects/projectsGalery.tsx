@@ -137,8 +137,6 @@ export default function ProjectsGalery() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-100 text-gray-700 hover:bg-gray-200 p-2 rounded-full shadow-md transition-transform hover:scale-110 z-10" />
-                <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-100 text-gray-700 hover:bg-gray-200 p-2 rounded-full shadow-md transition-transform hover:scale-110 z-10" />
               </Carousel>
 
               <p className="text-xs sm:text-sm text-gray-700 mt-2 line-clamp-2 group-hover:blur-sm transition-all duration-300">
