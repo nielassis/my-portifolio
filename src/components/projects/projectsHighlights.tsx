@@ -11,21 +11,11 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React, { useLayoutEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
-import {
-  SiNodedotjs,
-  SiPostgresql,
-  SiPrisma,
-  SiReact,
-  SiShadcnui,
-  SiStripe,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
 import Link from "next/link";
 import Tooltip from "../Tooltip/tooltip";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BsStarFill } from "react-icons/bs";
 
 export type Highlight = {
   title: string;
@@ -52,9 +42,9 @@ export default function ProjectsHighlights() {
         y: 0,
         duration: 1,
         ease: "power3.out",
-        stagger: 0.3,
+        stagger: 0.5,
         scrollTrigger: {
-          trigger: ".project",
+          trigger: ".project-item",
           start: "top 600px",
           end: "bottom 300px",
           scrub: true,
@@ -78,24 +68,35 @@ export default function ProjectsHighlights() {
       repo: "https://github.com/nielassis/financeai",
       category: "SaaS",
     },
+    {
+      title: "Quick Builder",
+      logo: "/projects/quickbuilder-logo.svg",
+      description:
+        "Quick Builder is an easy-to-use tool for creating and personalizing resumes. You can edit your resume in real-time, receive suggestions to improve the content, and save or export the document as a PDF.",
+      images: ["/projects/quickbuilder1.png"],
+      link: "https://quick-builder.vercel.app",
+      repo: "https://github.com/nielassis/quick-builder",
+      category: "SaaS",
+    },
   ];
 
   return (
-    <div className="flex flex-col space-y-8 px-4 md:px-8 mb-12 sm:px-8">
+    <div className="flex project flex-col space-y-8 px-4 md:px-8 mb-12 sm:px-8">
       {highlights.map((highlight, index) => (
         <div
           key={index}
-          className="flex project flex-col md:flex-row justify-between items-center md:items-start rounded-lg p-4 md:p-6 transition-shadow"
+          className="flex project-item flex-col md:flex-row justify-between items-center md:items-start rounded-lg p-4 md:p-6 transition-shadow"
         >
           {/* Left: Information */}
           <div className="flex-[1] md:pr-4 space-y-4 text-center md:text-left">
-            <div className="flex gap-2 items-center justify-center md:justify-start">
+            <div className="flex gap-2 items-center justify-start">
               <div className="bg-red-500 w-2 h-2 rounded-full"></div>
               <div className="bg-yellow-400 w-2 h-2 rounded-full"></div>
               <div className="bg-green-500 w-2 h-2 rounded-full"></div>
-              <h2 className="text-sm font-medium text-gray-600">
-                Featured Project
-              </h2>
+              <Badge className="gap-2 hover:bg-yellow-300 flex text-yellow-600 bg-yellow-400 bg-opacity-30">
+                <BsStarFill />
+                <h1 className="text-[10px] font-regular">Featured Project</h1>
+              </Badge>
             </div>
             <div className="flex md:flex-row items-center md:items-start gap-4 mb-4 md:mb-0">
               {/* Logo */}
@@ -133,53 +134,6 @@ export default function ProjectsHighlights() {
               <p className="text-gray-600 text-sm text-start">
                 {highlight.description}
               </p>
-              <div className="mt-8 text-xl flex flex-row text-gray-500 gap-4 sm:justify-start justify-center">
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="Next.js">
-                    <RiNextjsFill />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="TypeScript">
-                    <SiTypescript />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="React">
-                    <SiReact />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="Prisma">
-                    <SiPrisma />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="PostgreSQL">
-                    <SiPostgresql />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="Node.js">
-                    <SiNodedotjs />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="Shadcn">
-                    <SiShadcnui />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600 transition-transform duration-300">
-                  <Tooltip text="TailwindCSS">
-                    <SiTailwindcss />
-                  </Tooltip>
-                </span>
-                <span className="hover:scale-110 hover:text-gray-600  transition-transform duration-300">
-                  <Tooltip text="Stripe">
-                    <SiStripe />
-                  </Tooltip>
-                </span>
-              </div>
             </div>
           </div>
 
