@@ -1,8 +1,8 @@
-import Header from "@/components/header/header";
-import ParticlesBackground from "@/components/ParticleBackground/ParticleBackground";
-import ProjectsGalery from "@/components/projects/projectsGalery";
-import ProjectsHighlights from "@/components/projects/projectsHighlights";
-import Tooltip from "@/components/Tooltip/tooltip";
+import Header from "@/components/shared/header/header";
+import ParticlesBackground from "@/components/pages/main/ParticleBackground/ParticleBackground";
+import ProjectsGalery from "@/components/pages/main/projects/projectsGalery";
+import ProjectsHighlights from "@/components/pages/main/projects/projectsHighlights";
+import Tooltip from "@/components/shared/Tooltip/tooltip";
 import Link from "next/link";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";

@@ -12,7 +12,7 @@ import Image from "next/image";
 import React, { useLayoutEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
-import Tooltip from "../Tooltip/tooltip";
+import Tooltip from "../../../shared/Tooltip/tooltip";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BsStarFill } from "react-icons/bs";

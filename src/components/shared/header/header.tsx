@@ -9,8 +9,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
+} from "../../ui/dropdown-menu";
+import { Button } from "../../ui/button";
 import { LuMenu } from "react-icons/lu";
 import { CiHome } from "react-icons/ci";
 import { MdOutlineMailOutline, MdOutlineNewReleases } from "react-icons/md";

@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "../../../ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
-import { Button } from "../ui/button";
+} from "../../../ui/carousel";
+import { Button } from "../../../ui/button";
 import Link from "next/link";
 import {
   Dialog,
@@ -18,12 +18,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "../ui/dialog";
+} from "../../../ui/dialog";
 import { FaGithub } from "react-icons/fa";
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../../ui/badge";
 
 export default function ProjectsGalery() {
   useLayoutEffect(() => {
