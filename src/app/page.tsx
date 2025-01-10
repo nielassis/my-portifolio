@@ -2,10 +2,7 @@ import Header from "@/components/shared/header/header";
 import ParticlesBackground from "@/components/pages/main/ParticleBackground/ParticleBackground";
 import ProjectsGalery from "@/components/pages/main/projects/projectsGalery";
 import ProjectsHighlights from "@/components/pages/main/projects/projectsHighlights";
-import Tooltip from "@/components/shared/Tooltip/tooltip";
-import Link from "next/link";
-import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
-import { MdOutlineMailOutline } from "react-icons/md";
+import SocialsBar from "@/components/shared/socials/socialsBar";
 
 export default function Home() {
   return (
@@ -23,34 +20,7 @@ export default function Home() {
             </span>
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-6 bg-white p-4 rounded-full border-2 border-slate-200 shadow-lg mt-8 hover:border-slate-300 transition-all duration-300">
-            <span className="text-2xl text-gray-700 hover:text-violet-500 transform hover:scale-110 transition-all duration-300">
-              <Link href="https://github.com/nielassis" target="_blank">
-                <Tooltip text="Github">
-                  <BsGithub />
-                </Tooltip>
-              </Link>
-            </span>
-            <span className="text-2xl text-gray-700 hover:text-blue-500 transform hover:scale-110 transition-all duration-300">
-              <Link href="https://linkedin.com/in/nielassis" target="_blank">
-                <Tooltip text="Linkedin">
-                  <BsLinkedin />
-                </Tooltip>
-              </Link>
-            </span>
-            <span className="text-2xl text-gray-700 hover:text-green-500 transform hover:scale-110 transition-all duration-300">
-              <Link href="https://wa.link/osr8cz" target="_blank">
-                <Tooltip text="WhatsApp">
-                  <BsWhatsapp />
-                </Tooltip>
-              </Link>
-            </span>
-            <span className="text-2xl text-gray-700 hover:text-red-500 transform hover:scale-110 transition-all duration-300">
-              <Link href="mailto:nielvitorba@gmail.com" target="_blank">
-                <Tooltip text="Email">
-                  <MdOutlineMailOutline />
-                </Tooltip>
-              </Link>
-            </span>
+            <SocialsBar />
           </div>
         </section>
       </div>
