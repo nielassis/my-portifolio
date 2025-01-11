@@ -1,8 +1,8 @@
 import Header from "@/components/shared/header/header";
 import ParticlesBackground from "@/components/pages/main/ParticleBackground/ParticleBackground";
-import ProjectsGalery from "@/components/pages/main/projects/projectsGalery";
-import ProjectsHighlights from "@/components/pages/main/projects/projectsHighlights";
+
 import SocialsBar from "@/components/shared/socials/socialsBar";
+import Projects from "@/components/pages/main/projects";
 
 export default function Home() {
   return (
@@ -29,8 +29,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold mb-8 justify-center flex">
             Projects
           </h1>
-          <ProjectsHighlights />
-          <ProjectsGalery />
+          <Projects />
         </section>
       </div>
     </>
